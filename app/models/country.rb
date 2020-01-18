@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
 class Country < ApplicationRecord
-  has_many :movie
+  # validations
+  validates :name, presence: true
+
+  # associations
+  has_many :movies
 end
