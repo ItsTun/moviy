@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :country, class: Country do
+  factory :genre do
     name { 'user' }
   end
 end

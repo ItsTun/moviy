@@ -1,3 +1,3 @@
 class Type < ApplicationRecord
-  belongs_to :movie
+  has_many :movie
 end
