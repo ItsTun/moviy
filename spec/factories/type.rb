@@ -1,5 +1,9 @@
 FactoryBot.define do
+  sequence :type_name do |n|
+    "name#{n}"
+  end
+
   factory :type do
-    name { 'user' }
+    name { generate(:type_name) }
   end
 end

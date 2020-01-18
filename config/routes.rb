@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: "home#index"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'country/:name', to: 'country#index', as: :country_movie
+  get 'genre/:name', to: 'genre#index', as: :genre_movie
+  get 'type/:name', to: 'type#index', as: :type_movie
 end

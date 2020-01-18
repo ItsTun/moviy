@@ -1,5 +1,9 @@
 FactoryBot.define do
-  factory :country, class: Country do
-    name { 'user' }
+  sequence :country_name do |n|
+    "name#{n}"
+  end
+
+  factory :country do
+    name { generate(:country_name) }
   end
 end
