@@ -11,6 +11,13 @@ RSpec.describe Genre, type: :model do
     before :example do
       @genre = FactoryBot.create :genre
     end
+
+    it 'should has mnay genres' do
+      2.times do
+        FactoryBot.create :movie_genre, genre_id: @genre.id 
+      end
+      expect(@genre.movies.count).to eq(2)
+    end
   end
 
   describe 'validations' do

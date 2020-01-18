@@ -38,6 +38,13 @@ RSpec.describe Movie, type: :model do
       expect(@movie.videos.count).to eq(2)
     end
 
+    it 'should has mnay genres' do
+      2.times do
+        FactoryBot.create :movie_genre, movie_id: @movie.id 
+      end
+      expect(@movie.genres.count).to eq(2)
+    end
+
     it 'should belongs to country' do
       expect(@movie.country).to eq(@country)
     end
