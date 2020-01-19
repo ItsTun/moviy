@@ -7,6 +7,17 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("packs/jquery.min")
+require("packs/bootstrap.min")
+require("packs/material.min")
+require("packs/moment")
+require("packs/nouislider.min")
+require("packs/bootstrap-datetimepicker")
+require("packs/bootstrap-selectpicker")
+require("packs/bootstrap-tagsinput")
+require("packs/jasny-bootstrap.min")
+require("packs/material-kit")
+require("jquery")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

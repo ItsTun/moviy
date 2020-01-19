@@ -2,10 +2,208 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %link{:href => "../assets/img/apple-icon.png", :rel => "apple-touch-icon", :sizes => "76x76"}/
+    %link{:href => "../assets/img/favicon.png", :rel => "icon", :type => "image/png"}/
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %title Contact Us Page - Material Kit PRO by Creative Tim
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0", :name => "viewport"}/
+    / Fonts and icons
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css", :rel => "stylesheet"}/
     %title Easymoviy
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
+  %body.contact-page
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#navigation-example", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "../presentation.html"} Material Kit PRO
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{:href => "../index.html"}
+                %i.material-icons apps
+                Components
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %i.material-icons view_day
+                Sections
+                %b.caret
+              %ul.dropdown-menu.dropdown-with-icons
+                %li
+                  %a{:href => "../sections.html#headers"}
+                    %i.material-icons dns
+                    Headers
+                %li
+                  %a{:href => "../sections.html#features"}
+                    %i.material-icons build
+                    Features
+                %li
+                  %a{:href => "../sections.html#blogs"}
+                    %i.material-icons list
+                    Blogs
+                %li
+                  %a{:href => "../sections.html#teams"}
+                    %i.material-icons people
+                    Teams
+                %li
+                  %a{:href => "../sections.html#projects"}
+                    %i.material-icons assignment
+                    Projects
+                %li
+                  %a{:href => "../sections.html#pricing"}
+                    %i.material-icons monetization_on
+                    Pricing
+                %li
+                  %a{:href => "../sections.html#testimonials"}
+                    %i.material-icons chat
+                    Testimonials
+                %li
+                  %a{:href => "../sections.html#contactus"}
+                    %i.material-icons call
+                    Contacts
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %i.material-icons view_carousel
+                Examples
+                %b.caret
+              %ul.dropdown-menu.dropdown-with-icons
+                %li
+                  %a{:href => "../examples/about-us.html"}
+                    %i.material-icons account_balance
+                    About Us
+                %li
+                  %a{:href => "../examples/blog-post.html"}
+                    %i.material-icons art_track
+                    Blog Post
+                %li
+                  %a{:href => "../examples/blog-posts.html"}
+                    %i.material-icons view_quilt
+                    Blog Posts
+                %li
+                  %a{:href => "../examples/contact-us.html"}
+                    %i.material-icons location_on
+                    Contact Us
+                %li
+                  %a{:href => "../examples/landing-page.html"}
+                    %i.material-icons view_day
+                    Landing Page
+                %li
+                  %a{:href => "../examples/login-page.html"}
+                    %i.material-icons fingerprint
+                    Login Page
+                %li
+                  %a{:href => "../examples/pricing.html"}
+                    %i.material-icons attach_money
+                    Pricing Page
+                %li
+                  %a{:href => "../examples/ecommerce.html"}
+                    %i.material-icons shop
+                    Ecommerce Page
+                %li
+                  %a{:href => "../examples/product-page.html"}
+                    %i.material-icons beach_access
+                    Product Page
+                %li
+                  %a{:href => "../examples/profile-page.html"}
+                    %i.material-icons account_circle
+                    Profile Page
+                %li
+                  %a{:href => "../examples/signup-page.html"}
+                    %i.material-icons person_add
+                    Signup Page
+            %li
+              %a.btn.btn-white.btn-simple{:href => "http://www.creative-tim.com/buy/material-kit-pro?ref=presentation", :target => "_blank"}
+                %i.material-icons shopping_cart
+                Buy Now
+    #contactUsMap.big-map
+    .main.main-raised
+      .contact-content
+        .container
+          %h2.title Send us a message
+          .row
+            .col-md-6
+              %p.description
+                You can contact us with anything related to our Products. We'll get in touch with you as soon as possible.
+                %br/
+                %br/
+              %form#contact-form{:method => "post", :role => "form"}
+                .form-group.label-floating
+                  %label.control-label Your name
+                  %input.form-control{:name => "name", :type => "text"}/
+                .form-group.label-floating
+                  %label.control-label Email address
+                  %input.form-control{:name => "email", :type => "email"}/
+                .form-group.label-floating
+                  %label.control-label Phone
+                  %input.form-control{:name => "phone", :type => "text"}/
+                .form-group.label-floating
+                  %label.control-label Your message
+                  %textarea#message.form-control{:name => "message", :rows => "6"}
+                .submit.text-center
+                  %input.btn.btn-primary.btn-raised.btn-round{:type => "submit", :value => "Contact Us"}/
+            .col-md-4.col-md-offset-2
+              .info.info-horizontal
+                .icon.icon-primary
+                  %i.material-icons pin_drop
+                .description
+                  %h4.info-title Find us at the office
+                  %p
+                    Bld Mihail Kogalniceanu, nr. 8,
+                    %br/
+                    7652 Bucharest,
+                    %br/
+                    Romania
+              .info.info-horizontal
+                .icon.icon-primary
+                  %i.material-icons phone
+                .description
+                  %h4.info-title Give us a ring
+                  %p
+                    Michael Jordan
+                    %br/
+                    +40 762 321 762
+                    %br/
+                    Mon - Fri, 8:00-22:00
+              .info.info-horizontal
+                .icon.icon-primary
+                  %i.material-icons business_center
+                .description
+                  %h4.info-title Legal Information
+                  %p
+                    Creative Tim Ltd.
+                    %br/
+                    VAT · EN2341241
+                    %br/
+                    IBAN · EN8732ENGB2300099123
+                    %br/
+                    Bank · Great Britain Bank
+    %footer.footer
+      .container
+        %nav.pull-left
+          %ul
+            %li
+              %a{:href => "http://www.creative-tim.com"}
+                Creative Tim
+            %li
+              %a{:href => "http://presentation.creative-tim.com"}
+                About Us
+            %li
+              %a{:href => "http://blog.creative-tim.com"}
+                Blog
+            %li
+              %a{:href => "http://www.creative-tim.com/license"}
+                Licenses
     = yield
+  
+      
+    
