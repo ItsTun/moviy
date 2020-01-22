@@ -1,0 +1,46 @@
+body.index-page{
+  background-color: white;
+  .home{
+    .fb-player{
+      margin-top: 5%;
+    }
+    .movie-description{
+      .card-blog{
+        .card-image{
+          .img-raised{
+            height: 215px;
+          }
+        }
+      }
+    }
+    .card-blog{
+      .movie-title{
+        margin: 0;
+      }
+    }
+    .episode-download{
+      .episode{
+        font-size: 12px;
+        margin-top: 8%;
+        height: 25px;
+        min-width: 25px;
+        width: 25px;
+      }
+    }
+  }
+  .collections{
+    .card-background{
+      .card-content{
+        padding-top: 15px;
+        padding-bottom: 5px;
+        .episode{
+          float: right;
+        }
+        .card-title{
+          margin-top: 115%;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

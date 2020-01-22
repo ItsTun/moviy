@@ -1,1 +1,12 @@
+= render 'layouts/carousel', cache: true
+.col-md-12
+  %h4.title Latest Movies
+  .row.collections
+    - @movies.each do |movie|
+      .col-md-3
+        .card.card-background{:style => "background-image: url(#{image_path ('default.jpg')})"}
+          %a{:href => "#pablo"}
+          .card-content
+            %label.label.label-primary.episode EPS 10
+            %h2.card-title Stilleto
 = paginate @movies

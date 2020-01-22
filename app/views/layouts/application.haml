@@ -16,21 +16,11 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body.contact-page
+  %body.index-page
     = render 'layouts/navigation', cache: true
-    = yield
-    .container
-      .col-md-12
-        %h4.title Latest Collections
-        .row.collections
-          - 4.times do |ok|
-            .col-md-3
-              .card.card-background{:style => "background-image: url('../assets/img/examples/chris4.jpg')"}
-                %a{:href => "#pablo"}
-                .card-content
-                  %label.label.label-primary Spring 2016
-                  %a{:href => "#pablo"}
-                    %h2.card-title Stilleto
+    = yield :head
+    .container.home
+      = yield
     = render 'layouts/footer', cache: true
   
       

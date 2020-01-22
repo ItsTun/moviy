@@ -1,0 +1,23 @@
+#blogs-1.blogs-1
+  .row.fb-player
+    .col-md-10.col-md-offset-1
+      / Load Facebook SDK for JavaScript
+      #fb-root
+      %script{:async => "", :defer => "defer", :src => "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"}
+      / Your embedded video player code
+      .fb-video{"data-href" => "https://www.facebook.com/102481141177618/videos/148840496541682/", "data-show-text" => "false", "data-width" => "1100","data-height" => "600"}
+        .fb-xfbml-parse-ignore
+          %blockquote{:cite => "https://www.facebook.com/facebook/videos/10153231379946729/"}
+            %a{:href => "https://www.facebook.com/facebook/videos/10153231379946729/"} How to Share With Just Friends
+            %p How to share with just friends.
+            Posted by
+            %a{:href => "https://www.facebook.com/facebook/"} Facebook
+            on Friday, December 5, 2014
+  .row.episode-download
+    .col-md-5.col-md-offset-1
+      - 5.times do |episode, i|
+        %button.btn.btn-primary.btn-fab.btn-fab-mini.btn-round.episode
+          = i
+    .col-md-6.float-right
+  = render 'description', movie: @movie, cache: true
+  
