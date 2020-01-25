@@ -1,5 +1,5 @@
 ActiveAdmin.register Movie do
-  permit_params :name, :country_id, :type_id, :user_id, :release_date, :imdb, :rating, :description
+  permit_params :name, :country_id, :type_id, :user_id, :release_date, :imdb, :rating, :genre_ids, :thumbnail, :description
   index do
     selectable_column
     id_column
@@ -23,6 +23,9 @@ ActiveAdmin.register Movie do
       row :release_date
       row :imdb
       row :rating
+      row :image do
+        image_tag url_for(model.thumbnail) if model.thumbnail.attached?
+      end
       row :description
       model.genres.each_with_index do |genre, i|
         row "Genre #{i}" do
@@ -50,6 +53,7 @@ ActiveAdmin.register Movie do
       f.input :release_date
       f.input :imdb
       f.input :rating
+      f.file_field :thumbnail
       f.input :description
     end
     f.actions

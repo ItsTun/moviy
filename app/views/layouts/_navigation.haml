@@ -10,14 +10,11 @@
       %a.navbar-brand{:href => "../presentation.html"} EasyMoviy
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
-        %li
-          %a{:href => "../index.html"}
-            %i.material-icons apps
-            Movies
-        %li
-          %a{:href => "../index.html"}
-            %i.material-icons apps
-            TV-Series
+        - Type.all.each do |type|
+          %li
+            = link_to type_movie_path(type.name) do
+              %i.material-icons apps
+              = type.name
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
             %i.material-icons view_day
@@ -26,8 +23,7 @@
           %ul.dropdown-menu.dropdown-with-icons
             - Genre.all.each do |genre|
               %li
-                %a{:href => "../sections.html#headers"}
-                  Headers
+                = link_to genre.name, genre_movie_path(genre.name)
             
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -37,5 +33,4 @@
           %ul.dropdown-menu.dropdown-with-icons
             - Country.all.each do |country|
               %li
-                %a{:href => "../examples/about-us.html"}
-                  About Us
+                = link_to country.name, country_movie_path(country.name)

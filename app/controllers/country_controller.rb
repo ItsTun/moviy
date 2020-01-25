@@ -8,6 +8,7 @@ class CountryController < ApplicationController
   private
 
   def set_country
+    byebug
     @country = Country.find_by_name(params[:name])
   end
 

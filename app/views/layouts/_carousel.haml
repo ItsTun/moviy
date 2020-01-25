@@ -21,56 +21,24 @@
           %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
         / Wrapper for slides
         .carousel-inner
-          .item.active
-            .page-header.header-filter{:style => "background-image: url('assets/img/dg1.jpg');"}
-              .container
-                .row
-                  .col-md-6.text-left
-                    %h1.title Material Kit PRO
-                    %h4 Dolce  Gabbana is a luxury Italian fashion house founded in 1985 in Legnano by Italian designers Domenico Dolce and Stefano Gabbana. The two met in Milan in 1980 and designed for the same fashion house.
-                    %br/
-                    .buttons
-                      %a.btn.btn-primary.btn-lg{:href => "#pablo"}
-                        Read More
-                      %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                        %i.fa.fa-twitter
-                      %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                        %i.fa.fa-facebook-square
-                      %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                        %i.fa.fa-get-pocket
-          .item
-            .page-header.header-filter{:style => "background-image: url('assets/img/dg2.jpg');"}
-              .container
-                .row
-                  .col-md-8.col-md-offset-2.text-center
-                    %h1.title Material Kit PRO
-                    %h4 Dolce  Gabbana is a luxury Italian fashion house founded in 1985 in Legnano by Italian designers Domenico Dolce and Stefano Gabbana. The two met in Milan in 1980 and designed for the same fashion house.
-                    %br/
-                    %h6 Connect with us on:
-                    .buttons
-                      %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                        %i.fa.fa-twitter
-                      %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                        %i.fa.fa-facebook-square
-                      %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                        %i.fa.fa-google-plus
-                      %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                        %i.fa.fa-instagram
-          .item
-            .page-header.header-filter{:style => "background-image: url('assets/img/dg3.jpg');"}
-              .container
-                .row
-                  .col-md-7.col-md-offset-5.text-right
-                    %h1.title New Collection 50% Off
-                    %h4 There's no doubt that Tesla is delighted with the interest, but the data also raises a few questions. How long will it take for Tesla to fulfill all those extra orders?
-                    %br/
-                    .buttons
-                      %a.btn.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                        %i.material-icons share
-                        Share Offer
-                      %a.btn.btn-danger.btn-lg{:href => "#pablo"}
-                        %i.material-icons shopping_cart
-                        Shop Now
+          - latest_movies.each do |movie|
+            .item.active
+              .page-header.header-filter{:style => "background-image: url('#{image_path variant_url(movie.thumbnail, :medium)}');"}
+                .container
+                  .row
+                    .col-md-6.text-left
+                      %h1.title Material Kit PRO
+                      %h4 Dolce  Gabbana is a luxury Italian fashion house founded in 1985 in Legnano by Italian designers Domenico Dolce and Stefano Gabbana. The two met in Milan in 1980 and designed for the same fashion house.
+                      %br/
+                      .buttons
+                        %a.btn.btn-primary.btn-lg{:href => "#pablo"}
+                          Read More
+                        %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
+                          %i.fa.fa-twitter
+                        %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
+                          %i.fa.fa-facebook-square
+                        %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
+                          %i.fa.fa-get-pocket
         / Controls
         %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
           %i.material-icons keyboard_arrow_left
