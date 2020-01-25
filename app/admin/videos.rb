@@ -23,7 +23,7 @@ ActiveAdmin.register Video do
         video_tag "#{url_for(model.clip)}", :size => "320x240", :controls => true
       end
       row :download do
-        link_to rails_blob_path(model.clip, disposition: "attachment")
+        link_to "Download", rails_blob_url(model.clip,"attachment"),target: :_blank
       end
     end
   end
@@ -36,7 +36,9 @@ ActiveAdmin.register Video do
       f.input :url
       f.input :episode
       f.input :movie_id, as: :select, collection: Movie.all
+      f.label :Image
       f.file_field :thumbnail
+      f.label :video_clip
       f.file_field :clip
     end
     f.actions
