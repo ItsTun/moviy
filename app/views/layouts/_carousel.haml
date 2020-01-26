@@ -3,43 +3,31 @@
     %nav.navbar.navbar-transparent.navbar-absolute
       .container
         / Brand and toggle get grouped for better mobile display
-        .navbar-header
-          %button.navbar-toggle{"data-target" => "#navigation-example", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.navbar-brand{:href => "http://www.creative-tim.com"} Creative Tim
-        #navigation-example.collapse.navbar-collapse
-          %ul.nav.navbar-nav.navbar-right
     #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
       .carousel.slide{"data-ride" => "carousel"}
         / Indicators
         %ol.carousel-indicators
-          %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
-          %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-          %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+          - latest_movies.count.times do |i|
+            %li.active{class: get_class(i),"data-slide-to" => "#{i}", "data-target" => "#carousel-example-generic"}
         / Wrapper for slides
         .carousel-inner
-          - latest_movies.each do |movie|
-            .item.active
+          - latest_movies.each_with_index do |movie, i| 
+            .item{class: get_class(i)}
               .page-header.header-filter{:style => "background-image: url('#{image_path variant_url(movie.thumbnail, :medium)}');"}
                 .container
                   .row
                     .col-md-6.text-left
-                      %h1.title Material Kit PRO
-                      %h4 Dolce  Gabbana is a luxury Italian fashion house founded in 1985 in Legnano by Italian designers Domenico Dolce and Stefano Gabbana. The two met in Milan in 1980 and designed for the same fashion house.
+                      %h1.title 
+                        = movie.name
+                      %h6.category.text-info 
+                        = movie_genre(movie)
+                      %h4 
+                        = movie.description 
                       %br/
                       .buttons
-                        %a.btn.btn-primary.btn-lg{:href => "#pablo"}
-                          Read More
-                        %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                          %i.fa.fa-twitter
-                        %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                          %i.fa.fa-facebook-square
-                        %a.btn.btn-just-icon.btn-white.btn-simple.btn-lg{:href => "#pablo"}
-                          %i.fa.fa-get-pocket
-        / Controls
+                        = link_to movie_detail_path(movie.slug) do
+                          .btn.btn-primary.btn-lg
+                            Watch Now
         %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
           %i.material-icons keyboard_arrow_left
         %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}

@@ -5,19 +5,20 @@
       .row
         .col-md-3
           .card-image
-            %img.img.img-raised{:src => "#{image_path('default.jpg')}"}/
+            %img.img.img-raised{:src => "#{image_path variant_url(movie.thumbnail, :medium)}"}/
         .col-md-7
           %h3.title.movie-title Avengers: Infinity War
           %h6.category.text-info 
-            = movie_genre(@movie)
+            = movie_genre(movie)
           %p.card-description
-            Like so many organizations these days, Autodesk is a company in transition. It was until recently a traditional boxed software company selling licenses. Today, it’s moving to a subscription model. Yet its own business model disruption is only part of the story — and…
+            = simple_format(movie.description)
           %p.author
             Translated by
             = succeed "," do
               %a{:href => "#pablo"}
                 %b Mike Butcher
         .col-md-2
-          %button.btn.btn-primary Download
-          %button.btn.btn-primary Download
-          %button.btn.btn-primary Download
+          - video.urls.each_with_index do |url, i|
+            = link_to url.name do
+              %button.btn.btn-primary.btn-download
+                = "Download" + " #{i+1}"

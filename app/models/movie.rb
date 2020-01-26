@@ -7,15 +7,15 @@ class Movie < ApplicationRecord
   validates :name, presence: true
   validates :country_id, presence: true, numericality: { only_integer: true }
   validates :type_id, presence: true, numericality: { only_integer: true }
-  validates :user_id, presence: true, numericality: { only_integer: true }
+  # validates :user_id, presence: true, numericality: { only_integer: true }
 
   # associations
   belongs_to :country
   belongs_to :type
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :videos
   has_one_attached :thumbnail
-  has_and_belongs_to_many :genres, join_table: 'movies_genres', foreign_key: 'movie_id'
+  has_and_belongs_to_many :genres, join_table: 'movies_genres', class_name: 'Genre', association_foreign_key: 'genre_id', foreign_key: 'movie_id'
   accepts_nested_attributes_for :videos, :allow_destroy => true
 
   def thumbnail_variants

@@ -1,0 +1,10 @@
+.col-md-12
+  %h4.title Latest Movies
+  .row.collections
+    - movies.each do |movie|
+      .col-sm-6.col-md-3
+        = link_to movie_detail_path(movie.slug) do
+          .card.card-background{:style => "background-image: url(#{image_path variant_url(movie.thumbnail, :medium)})"}
+            .card-content
+              %label.label.label-primary.episode EPS 10
+              %h2.card-title Stilleto

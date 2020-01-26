@@ -8,7 +8,7 @@ class TypeController < ApplicationController
   private
 
   def set_type
-    @type = Type.find_by_name(params[:name])
+    @type = Type.find params[:slug]
   end
 
 end

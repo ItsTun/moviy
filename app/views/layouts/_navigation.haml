@@ -1,4 +1,4 @@
-%nav.navbar.navbar-inverse.navbar-fixed-top
+%nav.navbar.navbar-default.navbar-fixed-top
   .container
     / Brand and toggle get grouped for better mobile display
     .navbar-header
@@ -7,12 +7,17 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "../presentation.html"} EasyMoviy
+      = link_to root_path, class: 'navbar-brand' do
+        EasyMoviy
     .collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to movie_index_path do
+            %i.material-icons apps
+            = 'Home'
         - Type.all.each do |type|
           %li
-            = link_to type_movie_path(type.name) do
+            = link_to type_movie_path(type.slug) do
               %i.material-icons apps
               = type.name
         %li.dropdown
@@ -23,7 +28,7 @@
           %ul.dropdown-menu.dropdown-with-icons
             - Genre.all.each do |genre|
               %li
-                = link_to genre.name, genre_movie_path(genre.name)
+                = link_to genre.name, genre_movie_path(genre.slug)
             
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -33,4 +38,4 @@
           %ul.dropdown-menu.dropdown-with-icons
             - Country.all.each do |country|
               %li
-                = link_to country.name, country_movie_path(country.name)
+                = link_to country.name, country_movie_path(country.slug)

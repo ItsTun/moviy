@@ -13,5 +13,6 @@
  *= require 'bootstrap.min'
  *= require 'material-kit'
  *= require 'movie'
+ *= require 'search'
  *= require_self
  */

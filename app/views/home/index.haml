@@ -1,13 +1,19 @@
-= render 'layouts/carousel', latest_movies: @latest_movies, cache: true
-.col-md-12
-  %h4.title Latest Movies
-  .row.collections
-    - @movies.each do |movie|
-      .col-md-3
-        = link_to movie_detail_path(movie) do
-          .card.card-background{:style => "background-image: url(#{image_path variant_url(movie.thumbnail, :medium)})"}
-            %a{:href => "#pablo"}
-            .card-content
-              %label.label.label-primary.episode EPS 10
-              %h2.card-title Stilleto
-= paginate @movies
+.container.search
+  .row
+    .col-md-6.col-md-offset-3
+      .text-center
+        %h3.title Search !
+        %p.description
+          Your favourite is just one click away!
+      .card.card-raised.card-form-horizontal
+        .card-content
+          %form{:action => "", :method => ""}
+            .row
+              .col-sm-8
+                .input-group
+                  %span.input-group-addon
+                    %i.material-icons mail
+                  %input.form-control{:placeholder => "Your Email...", :type => "email", :value => ""}/
+              .col-sm-4
+                %button.btn.btn-primary.btn-block{:type => "button"} Search
+

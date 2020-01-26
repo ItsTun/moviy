@@ -1,5 +1,4 @@
 ActiveAdmin.register Movie do
-  permit_params :name, :country_id, :type_id, :user_id, :release_date, :imdb, :rating, :genre_ids, :thumbnail, :description
   index do
     selectable_column
     id_column
@@ -19,12 +18,11 @@ ActiveAdmin.register Movie do
       row :name
       row :country
       row :type
-      row :user
       row :release_date
       row :imdb
       row :rating
       row :image do
-        image_tag url_for(model.thumbnail) if model.thumbnail.attached?
+        image_tag variant_url(model.thumbnail, :medium)
       end
       row :description
       model.genres.each_with_index do |genre, i|
@@ -57,5 +55,21 @@ ActiveAdmin.register Movie do
       f.input :description
     end
     f.actions
+  end
+  controller do
+    def permitted_params
+      params.permit :authenticity_token, :commit, movie:
+      [:name,
+       :country_id, 
+       :type_id, 
+       :user_id, 
+       :release_date, 
+       :imdb,
+       :rating,
+       :description,
+       :thumbnail,
+       genre_ids: []
+      ]
+    end
   end
 end
