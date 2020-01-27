@@ -1,25 +1,27 @@
   
-.row.movie-description
-  .col-md-10.col-md-offset-1
-    .card.card-plain.card-blog
-      .row
-        .col-md-3
-          .card-image
-            %img.img.img-raised{:src => "#{image_path variant_url(movie.thumbnail, :medium)}"}/
-        .col-md-7
-          %h3.title.movie-title
-            = movie_title(movie.name, params[:episode])
-          %h6.category.text-info 
-            = movie_genre(movie)
-          %p.card-description
-            = simple_format(movie.description)
-          %p.author
-            Translated by
-            = succeed "," do
-              %a{:href => "#pablo"}
-                %b Mike Butcher
-        .col-md-2
-          - video.urls.each_with_index do |url, i|
-            = link_to url.name do
-              %button.btn.btn-primary.btn-download
-                = "Download" + " #{i+1}"
+- cache movie do
+  .row.movie-description
+    .col-md-10.col-md-offset-1
+      .card.card-plain.card-blog
+        .row
+          .col-md-3
+            .card-image
+              - cache movie.thumbnail do
+                %img.img{:src => "#{image_path variant_url(movie.thumbnail, :medium)}"}/
+          .col-md-7
+            %h3.title.movie-title
+              = movie_title(movie.name, params[:episode])
+            %h6.category.text-info 
+              = movie_genre(movie)
+            %p.card-description
+              = simple_format(movie.description)
+            %p.author
+              Translated by
+              = succeed "," do
+                %a{:href => "#pablo"}
+                  %b Mike Butcher
+          .col-md-2
+            - video.urls.each_with_index do |url, i|
+              = link_to url.name do
+                %button.btn.btn-primary.btn-download
+                  = "Download" + " #{i+1}"

@@ -13,12 +13,12 @@
       %ul.nav.navbar-nav.navbar-right
         %li
           = link_to movie_index_path do
-            %i.material-icons apps
+            %i.material-icons home
             = 'Home'
         - Type.all.each do |type|
           %li
             = link_to type_movie_path(type.slug) do
-              %i.material-icons apps
+              %i.material-icons movie
               = type.name
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}

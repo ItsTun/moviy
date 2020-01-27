@@ -2,9 +2,6 @@
 
 module MovieHelper
   def movie_genre(_movie)
-    # movie.genres.each do |genre|
-    #   genres << genre
-    # end
     genres = ['drama, action']
     genres.join(',')
   end
@@ -17,8 +14,16 @@ module MovieHelper
     end
   end
 
+  def stream_link(url)
+    if url.present?
+      url
+    else
+      ''
+    end
+  end
+
   def get_class(i)
-    if i == 0
+    if i.zero?
       'active'
     else
       ''

@@ -1,5 +1,17 @@
 body.index-page{
   background-color: white;
+  #carousel-example-generic{
+    .carousel{
+      .carousel-inner{
+        height: 430px;
+        .container{
+          .row{
+            margin-top: -130px;
+          }
+        }
+      }
+    }
+  }
   .home{
     .fb-player{
       margin-top: 5%;
@@ -7,9 +19,7 @@ body.index-page{
     .movie-description{
       .card-blog{
         .card-image{
-          .img-raised{
-            height: 215px;
-          }
+          margin-bottom: 5%;
         }
       }
     }
@@ -22,12 +32,16 @@ body.index-page{
       }
     }
     .episode-download{
+      margin-top: 2%;
+      .episode-div{
+        margin-top: 1%;
+      }
       .episode{
-        font-size: 12px;
-        margin-top: 8%;
-        height: 25px;
-        min-width: 25px;
-        width: 25px;
+        font-size: 15px;
+        margin-top: 2%;
+        height: 30px;
+        min-width: 30px;
+        width: 30px;
       }
     }
   }
