@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'type/:slug', to: 'type#index', as: :type_movie
   get 'movie/:slug', to: 'movie#show', as: :movie_detail
   get 'movies', to: 'movie#index', as: :movie_index
+  get 'searh', to: 'movie#search', as: :search_movies
 end

@@ -2,18 +2,20 @@
   .row
     .col-md-6.col-md-offset-3
       .text-center
-        %h3.title Search !
+        %h3.title Search Now !
         %p.description
-          Your favourite is just one click away!
+          Your favourite movie is just one click away!
       .card.card-raised.card-form-horizontal
         .card-content
-          %form{:action => "", :method => ""}
+          - movie = Movie.new
+          = simple_form_for(movie, url: search_movies_path, method: :get,
+            multipart: true) do |f|
             .row
-              .col-sm-8
-                .input-group
-                  %span.input-group-addon
-                    %i.material-icons mail
-                  %input.form-control{:placeholder => "Your Email...", :type => "email", :value => ""}/
-              .col-sm-4
-                %button.btn.btn-primary.btn-block{:type => "button"} Search
+              %span.input-icon
+                %i.material-icons search
+              .col-sm-12
+                = f.input :name, class: 'form-control', placeholder: "Search your favorite movie",label: false
+  .row.text-center
+    = link_to movie_index_path do
+      %button.btn.btn-primary Watch Movies
 

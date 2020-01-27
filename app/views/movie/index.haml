@@ -1,3 +1,5 @@
 = render 'layouts/carousel', latest_movies: @latest_movies, cache: true
+- content_for :search_result_title do
+  Latest Movies
 = render 'movie/content', movies: @movies, cache: true
 = paginate @movies

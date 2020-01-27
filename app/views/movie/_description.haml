@@ -7,7 +7,8 @@
           .card-image
             %img.img.img-raised{:src => "#{image_path variant_url(movie.thumbnail, :medium)}"}/
         .col-md-7
-          %h3.title.movie-title Avengers: Infinity War
+          %h3.title.movie-title
+            = movie_title(movie.name, params[:episode])
           %h6.category.text-info 
             = movie_genre(movie)
           %p.card-description

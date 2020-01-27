@@ -1,2 +1,8 @@
-= render 'movie/content', movies: @movies, cache: true
-= paginate @movies
+.section
+  - content_for :search_result_title do
+    - if @movies.present?
+      We found #{@movies.count} movies for your search query.
+    - else
+      Sorry! We didn't found any movies related to your search query.
+  = render 'movie/content', movies: @movies, cache: true
+  = paginate @movies

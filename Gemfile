@@ -29,6 +29,8 @@ gem 'kaminari'
 gem 'simple_form'
 # friendly id
 gem 'friendly_id', '>= 5.3'
+# rolify
+gem "rolify"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

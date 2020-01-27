@@ -1,5 +1,5 @@
 #blogs-1.blogs-1
-  .row.fb-player
+  .row.fb-player{"data-turbolinks" => "false"}
     .col-md-10.col-md-offset-1
       / Load Facebook SDK for JavaScript
       #fb-root
@@ -9,7 +9,7 @@
   .row.episode-download
     .col-md-5.col-md-offset-1
       - @movie.videos.each_with_index do |video, i|
-        = link_to movie_detail_path(@movie.slug, episode: video.episode) do
+        = link_to movie_detail_path(@movie.slug, episode: video.episode),{"data-turbolinks" => "false"} do
           %button.btn.btn-primary.btn-fab.btn-fab-mini.btn-round.episode
             = video.episode
     .col-md-6.float-right
