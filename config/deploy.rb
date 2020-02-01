@@ -2,6 +2,7 @@
 lock "~> 3.11.2"
 
 set :application, "easy_moviy"
+
 set :repo_url, "git@gitlab.com:ItsTun/easymoviy.git"
 
 # Default branch is :master
