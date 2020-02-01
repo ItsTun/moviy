@@ -76,6 +76,9 @@ GEM
     ast (2.4.0)
     bcrypt (3.1.13)
     bcrypt (3.1.13-java)
+    bcrypt_pbkdf (1.0.1)
+    bcrypt_pbkdf (1.0.1-x64-mingw32)
+    bcrypt_pbkdf (1.0.1-x86-mingw32)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -116,6 +119,8 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
+    ed25519 (1.2.4)
+    ed25519 (1.2.4-java)
     erubi (1.9.0)
     erubis (2.7.0)
     factory_bot (5.1.1)
@@ -390,6 +395,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  bcrypt_pbkdf (~> 1)
   bootsnap (>= 1.4.2)
   byebug
   capistrano (~> 3.11)
@@ -398,6 +404,7 @@ DEPENDENCIES
   capistrano-rbenv (~> 2.1, >= 2.1.4)
   capybara (>= 2.15)
   devise
+  ed25519 (~> 1.2)
   factory_bot_rails
   friendly_id (>= 5.3)
   haml-rails (~> 2.0)
