@@ -1,5 +1,5 @@
 # Change these
-server '134.209.104.86', roles: [:web, :app, :db], primary: true
+server '157.245.203.111', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@gitlab.com:ItsTun/easymoviy.git'
 set :application,     'easymoviy'
