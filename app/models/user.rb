@@ -11,9 +11,9 @@ class User < ApplicationRecord
 
   # associations
   has_many :movies
-  after_create :assign_default_role
+  # after_create :assign_default_role
 
-  def assign_default_role
-    add_role(:user) if roles.blank?
-  end
+  # def assign_default_role
+  #   add_role(:user) if roles.blank?
+  # end
 end
