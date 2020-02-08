@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Change these
-server '157.245.203.111', roles: %i[web app db], primary: true
+server '159.65.13.13', roles: %i[web app db], primary: true
 
 set :repo_url,        'git@gitlab.com:ItsTun/easymoviy.git'
 set :application,     'easymoviy'
