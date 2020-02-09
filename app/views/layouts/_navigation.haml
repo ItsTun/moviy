@@ -29,7 +29,7 @@
             - Genre.all.each do |genre|
               %li
                 = link_to genre.name, genre_movie_path(genre.slug)
-            
+
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
             %i.material-icons view_carousel
