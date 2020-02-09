@@ -1,19 +1,20 @@
 #blogs-1.blogs-1
-  .row.fb-player{"data-turbolinks" => "false"}
-    .col-md-10.col-md-offset-1
-      / Load Facebook SDK for JavaScript
-      #fb-root
-      %script{:async => "", :defer => "defer", :src => "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"}
-      / Your embedded video player code
-      .fb-video{"data-href" => "#{stream_link(@video.stream_url)}", "data-show-text" => "false", "data-width" => "1100","data-height" => "600"}
-  .row.episode-download
-    .col-md-1.col-md-offset-1.episode-div
-      %h4.title Episodes:
-    .col-md-5.episode-div
-      - @movie.videos.each_with_index do |video, i|
-        = link_to movie_detail_path(@movie.slug, episode: video.episode),{"data-turbolinks" => "false"} do
-          %button.btn.btn-primary.btn-fab.btn-fab-mini.btn-round.episode
-            = video.episode
-    .col-md-6.float-right
-  = render 'description', movie: @movie, video: @video, cache: true
-  
+  - if @video
+    .row.fb-player{"data-turbolinks" => "false"}
+      .col-md-10.col-md-offset-1
+        / Load Facebook SDK for JavaScript
+        #fb-root
+        %script{:async => "", :defer => "defer", :src => "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"}
+        / Your embedded video player code
+        .fb-video{"data-href" => "#{stream_link(@video.stream_url)}", "data-show-text" => "false", "data-width" => "1100","data-height" => "600"}
+    .row.episode-download
+      - if @movie.videos.count > 1
+        .col-md-1.col-md-offset-1.episode-div
+          %h4.title Episodes:
+        .col-md-5.episode-div
+          - @movie.videos.each_with_index do |video, i|
+            = link_to movie_detail_path(@movie.slug, episode: video.episode),{"data-turbolinks" => "false"} do
+              %button.btn.btn-primary.btn-fab.btn-fab-mini.btn-round.episode
+                = video.episode
+        .col-md-6.float-right
+    = render 'description', movie: @movie, video: @video, cache: true

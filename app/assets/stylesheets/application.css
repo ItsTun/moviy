@@ -10,9 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require 'bootstrap.min'
- *= require 'material-kit'
- *= require 'movie'
- *= require 'search'
+ *= require 'easy/bootstrap.min'
+ *= require 'easy/material-kit'
+ *= require 'easy/movie'
+ *= require 'easy/search'
  *= require_self
  */
