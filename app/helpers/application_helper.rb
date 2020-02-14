@@ -3,7 +3,7 @@ module ApplicationHelper
     record = attachment.record
     attachment_variant = record.send(attachment.name + "_variants")[option]
     if attachment.attached?
-      Rails.application.routes.url_helpers.url_for(attachment.variant(attachment_variant))
+      url_for(attachment.variant(attachment_variant))
     else
       ActionController::Base.helpers.asset_path('default.jpg')
     end

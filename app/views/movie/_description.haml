@@ -6,8 +6,7 @@
         .row
           .col-md-3
             .card-image
-              - cache movie.thumbnail do
-                %img.img{:src => "#{image_path variant_url(movie.thumbnail, :medium)}"}/
+              %img.img{:src => "#{image_path variant_url(movie.thumbnail, :medium)}"}/
           .col-md-7
             %h3.title.movie-title
               = movie_title(movie.name, params[:episode])
