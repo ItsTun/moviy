@@ -47,6 +47,7 @@ ActiveAdmin.register Movie do
       f.input :name
       f.input :country_id, as: :select, collection: Country.all
       f.input :type_id, as: :select, collection: Type.all
+      f.input :user_id, :input_html => { value: current_user.id }, as: :hidden
       f.input :genres, as: :check_boxes, :collection => Genre.all.map{ |genre|  [genre.name, genre.id] }
       f.input :release_date
       f.input :imdb

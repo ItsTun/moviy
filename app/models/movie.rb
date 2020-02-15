@@ -18,6 +18,9 @@ class Movie < ApplicationRecord
   has_and_belongs_to_many :genres, join_table: 'movies_genres', class_name: 'Genre', association_foreign_key: 'genre_id', foreign_key: 'movie_id'
   accepts_nested_attributes_for :videos, :allow_destroy => true
 
+  validates :thumbnail, attached: true,
+                        content_type: ['image/png', 'image/jpg', 'image/jpeg']
+
   def thumbnail_variants
     { thumb: { resize: '100x100' },
       medium: { resize: '300x300' },
