@@ -7,18 +7,18 @@
           %li.active{class: get_class(i),"data-slide-to" => "#{i}", "data-target" => "#carousel-example-generic"}
       / Wrapper for slides
       .carousel-inner
-        - latest_movies.each_with_index do |movie, i| 
+        - latest_movies.each_with_index do |movie, i|
           .item{class: get_class(i)}
             .page-header.header-filter{:style => "background-image: url('#{image_path variant_url(movie.thumbnail, :medium)}');"}
               .container
                 .row
                   .col-md-6.text-left
-                    %h1.title 
+                    %h1.title
                       = movie.name
-                    %h6.category.text-info 
+                    %h6.category.text-info
                       = movie_genre(movie)
-                    %h4 
-                      = movie.description 
+                    %h4
+                      = 'Most Watched Movies'
                     %br/
                     .buttons
                       = link_to movie_detail_path(movie.slug) do
