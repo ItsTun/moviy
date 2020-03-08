@@ -12,6 +12,14 @@ ActiveAdmin.register Video do
       row :movie
       row :episode
       row :stream_url
+      model.urls.each_with_index do |url, i|
+        row "Url #{i}" do
+          url.name
+        end
+      end
+      row :download do
+        link_to "Download", rails_blob_url(model.clip,"attachment"),target: :_blank if model.clip.attached?
+      end
     end
   end
 
@@ -22,6 +30,12 @@ ActiveAdmin.register Video do
       f.input :movie_id, as: :select, collection: Movie.all
       f.input :episode
       f.input :stream_url
+    end
+    f.inputs do
+      f.has_many :urls,
+        allow_destroy: true do |model|
+        model.input :name
+      end
     end
     f.actions
   end

@@ -1,4 +1,3 @@
-  
 - cache movie do
   .row.movie-description
     .col-md-10.col-md-offset-1
@@ -6,7 +5,8 @@
         .row
           .col-md-3
             .card-image
-              %img.img{:src => "#{image_path variant_url(movie.thumbnail, :medium)}"}/
+              - cache movie.thumbnail do
+                %img.img{:src => "#{image_path variant_url(movie.thumbnail, :medium)}"}/
           .col-md-7
             %h3.title.movie-title
               = movie_title(movie.name, params[:episode])
@@ -14,6 +14,11 @@
               = movie_genre(movie)
             %p.card-description
               = simple_format(movie.description)
+            %p.author
+              Translated by
+              = succeed "," do
+                %a{:href => "#pablo"}
+                  %b Mike Butcher
           .col-md-2
             - video.urls.each_with_index do |url, i|
               = link_to url.name do
