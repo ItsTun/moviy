@@ -30,6 +30,63 @@
     .container.home
       = yield
     = render 'layouts/footer', cache: true
+  :javascript
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '275489226946059',
+        cookie     : true,                     // Enable cookies to allow the server to access the session.
+        xfbml      : true,                     // Parse social plugins on this webpage.
+        version    : 'v6.0'           // Use this Graph API version for this call.
+      });
+
+      FB.getLoginStatus((response) => {
+        if (response.status === 'connected') {
+          //user is authorized
+          document.getElementById('loginBtn').style.display = 'none';
+          sessionCreate();
+        } else {
+          //user is not authorized
+        }
+      });
+    };
+
+
+    (function(d, s, id) {                      // Load the SDK asynchronously
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function facebookLogin(){
+        FB.login(function(response) {
+          if (response.status === 'connected') {
+            sessionCreate(response);
+          // Logged into your webpage and Facebook.
+        } else {
+          // The person is not logged into your webpage or we are unable to tell.
+        }
+      }, {scope: 'public_profile,email'});
+    }
+
+    function sessionCreate(auth) {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+      console.log('Welcome!  Fetching your information.... ');
+      FB.api('/me',{fields: 'name,email'}, function(response) {
+        var authResponse = auth.authResponse;
+
+        $.ajax({
+          url: "/sign_in",
+          type: "POST",
+          data: {oauth_token: authResponse.accessToken, uid: authResponse.userID,
+                name: response.name, email: response.email},
+          success: function (data) {
+          }
+        });
+        document.getElementById('status').innerHTML =
+          'Thanks for logging in, ' + response.name + '!';
+      });
+    }
 
 
 

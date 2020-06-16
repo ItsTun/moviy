@@ -11,9 +11,14 @@ class User < ApplicationRecord
 
   # associations
   has_many :movies
-  # after_create :assign_default_role
 
-  # def assign_default_role
-  #   add_role(:user) if roles.blank?
-  # end
+  def self.from_fb(auth)
+    where(auth[:uid]).first_or_initialize.tap do |user|
+      user.uid = auth[:uid]
+      user.name = auth[:name]
+      user.email = auth[:email]
+      user.oauth_token = auth[:oauth_token]
+      user.save!
+    end
+  end
 end

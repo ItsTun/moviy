@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: "home#index"
+  post 'sign_in', to: 'sessions#create', as: :user_sign_in
   get 'country/:slug', to: 'country#index', as: :country_movie
   get 'genre/:slug', to: 'genre#index', as: :genre_movie
   get 'type/:slug', to: 'type#index', as: :type_movie
