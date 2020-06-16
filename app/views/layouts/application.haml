@@ -76,7 +76,7 @@
         var authResponse = auth.authResponse;
 
         $.ajax({
-          url: "/sign_in",
+          url: "/users/sign_in",
           type: "POST",
           data: {oauth_token: authResponse.accessToken, uid: authResponse.userID,
                 name: response.name, email: response.email},
